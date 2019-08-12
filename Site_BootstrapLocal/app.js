@@ -25,7 +25,7 @@ module.exports = app;
 
 const banco = require("./app-banco");
 
-banco.connection.connect(function (erro){
+banco.connection.getConnection(function (erro){
     if (!erro) {
         console.log("Conexão com banco funcionando corretamente");
     } else {

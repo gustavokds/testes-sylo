@@ -2,7 +2,8 @@ var desenvolvimento = false;
 
 const mysql = require('mysql');
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
+    connectionLimit : 4,
     server: 'LAPTOP-04CTIBD7',
     host: 'localhost',
     port: 3306,
@@ -29,12 +30,12 @@ const connection = mysql.createConnection({
 //     console.error(`Erro de Conexão: ${err}`);
 // });
 
-// var perfil = desenvolvimento ? 'desenvolvimento' : 'producao';
+var perfil = desenvolvimento ? 'desenvolvimento' : 'producao';
 
-// function conectar() {
-//     //   return sql.connect(configuracoes[perfil])
-//     return new sql.ConnectionPool(configuracoes[perfil]).connect();
-// }
+function conectar() {
+    //   return sql.connect(configuracoes[perfil])
+    return new mysql.ConnectionPool(connection[perfil]).connect();
+}
 
 // function conectar2() {
 //     return sql.connect(configuracoes[perfil])
@@ -43,7 +44,7 @@ const connection = mysql.createConnection({
 
 module.exports = {
     // conectar2: conectar2,
-    // conectar: conectar,
+    conectar: conectar,
     // sql: sql,
     connection: connection
 }
