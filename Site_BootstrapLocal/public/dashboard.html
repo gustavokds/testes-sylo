@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sylo - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="./icofont/icofont.min.css">
+    <link href="vendor-func/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="icon" href="./img-func/logo-icon.png">
+    <!-- Custom styles for this template-->
+    <link href="./css-func/sb-admin-2.css" rel="stylesheet">
+    <link href="vendor-func/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- Start of sylohelp Zendesk Widget script -->
+    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=0ef55123-a998-4b5b-a1b5-8fdff40f3c62">
+    </script>
+    <!-- End of sylohelp Zendesk Widget script -->
+
+</head>
+
+<body onload="atualizarGrafico()" id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon">
+                    <img class="logo-icon" src="./img-func/logo-icon.png" style="width:60%;height:60%;margin-left:-.5rem; "></img>
+                </div>
+                <div class="sidebar-brand-text"><img src="./img-func/logo-text.png" style="width: 150%;height: 150%;margin-left: -1.5rem;margin-bottom: -.5rem;"></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="dashboard.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a id="id_silos" class="nav-link" href="silos.html">
+                    <i class="fas fa-fw fa-ellipsis-v"></i> <span class="navbar-silos">Silos</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Relatórios
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a id="id_vendas" class="nav-link" href="vendas.html">
+                    <i class="fas fa-fw fa-coins"></i>
+                    <span>Vendas</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a id="id_qualidade" class="nav-link collapsed" href="qualidade.html">
+                    <i class="fas fa-fw fa-balance-scale"></i>
+                    <span>Qualidade</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Institucional
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-building"></i>
+                    <span>Institucional</span>
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html#teste">
+                    <i class="fas fa-fw fa-wallet"></i>
+                    <span>Simulador</span>
+                </a>
+
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow-top-s">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+        </button>
+
+                    <!-- Topbar Search -->
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                    </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alertas
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">12/04/2019 12:32:54</div>
+                                        <span class="font-weight-bold">Alerta de Temperatura: Temperatura no Silo 3 atingiu 25ºC</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">21/04/2019 13:45:58</div>
+                                        Alerta de Umidade: Umidade no Silo 2 atingiu 60%.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">23/04/2019 18:21:13</div>
+                                        Alerta de Temperatura: Temperatura no Silo 1 atingiu 26.0ºC.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todos alertas.</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id='span_nome' style='font-size:1rem;' class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <img class="img-profile rounded-circle" src="img-inst/team/Brandao.jpg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Configurações
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Log de Atividades
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="./index.html" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
+                    </div>
+
+
+
+                    <!-- Gráfico Temperatura Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+                        <div id='ambiente' class="col-xl-8 col-lg-7">
+                            <div class="card shadow-s mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h5 class="m-0 font-weight-bold text-gray-800">Temperatura e Umidade - Geral</h5>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Dropdown Header:</div>
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body-grafico">
+                                    <div class="chart-area">
+                                        <canvas id="myChart"></canvas>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow-s mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h5 class="m-0 font-weight-bold dark-green">Situação - Geral</h2>
+                                        <div class="dropdown no-arrow">
+                                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                                <div class="dropdown-header">Dropdown Header:</div>
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <table class="table-sylo" style="width: 100%;height: 100%;margin-top:-6%;">
+                                            <tr>
+                                                <td align="left">
+                                                    Silo 1 (Soja)
+                                                    <i id="silo1" class="fas fa-circle green"></i>
+                                                </td>
+                                                <td></td>
+                                                <td align="left">
+                                                    Silo 2 (Milho)
+                                                    <i id="silo2" class="fas fa-circle green"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">
+                                                    Silo 3 (Milho)
+                                                    <i id="silo3" class="fas fa-circle green"></i>
+                                                </td>
+                                                <td></td>
+                                                <td align="left">
+                                                    Silo 4 (Milho)
+                                                    <i id="silo4" class="fas fa-circle green"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">
+                                                    Silo 5 (Milho)
+                                                    <i class="fas fa-circle green"></i>
+                                                </td>
+                                                <td></td>
+                                                <td align="left">
+                                                    Silo 6 (Soja)
+                                                    <i class="fas fa-circle green"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">
+                                                    Silo 7 (Milho)
+                                                    <i class="fas fa-circle green"></i>
+                                                </td>
+                                                <td></td>
+                                                <td align="left">
+                                                    Silo 8 (Soja)
+                                                    <i class="fas fa-circle green"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">
+                                                    Silo 9 (Milho)
+                                                    <i class="fas fa-circle green"></i>
+                                                </td>
+                                                <td></td>
+                                                <td align="left">
+                                                    Silo 10 (Soja)
+                                                    <i class="fas fa-circle green"></i>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                    <i class="fas fa-circle red"></i> Alerta
+                </span>
+                                        <span class="mr-2">
+                    <i class="fas fa-circle green"></i> OK
+                </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- DataTales Example -->
+                        <div class="col-xl-12 col-lg-12">
+
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Controles</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" style="font-size:.9rem;" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Silo</th>
+                                                    <th class='blue'>Temp Min</th>
+                                                    <th class='blue'>Umid Min</th>
+                                                    <th>1ºQ Temp</th>
+                                                    <th>1ºQ Umid</th>
+                                                    <th class='dark-green'>Média Temp</th>
+                                                    <th class='dark-green'>Média Umid</th>
+                                                    <th>3ºQ Temp</th>
+                                                    <th>3ºQ Umid</th>
+                                                    <th class='red'>Temp Máx</th>
+                                                    <th class='red'>Umid Máx</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td>Silo 1</td>
+                                                    <td id="td_1_min" class='blue'>-2.0</td>
+                                                    <td id="td_1_min2" class='blue'>6.0</td>
+                                                    <td id="td_1_temp_1">19.7</td>
+                                                    <td id="td_1_umid_1">34.5</td>
+                                                    <td class='dark-green' id="td_1_temp_2">21.6</td>
+                                                    <td class='dark-green' id="td_1_umid_2">42.2</td>
+                                                    <td id="td_1_temp_3">23.1</td>
+                                                    <td id="td_1_umid_3">49.0</td>
+                                                    <td id="td_1_max" class='red'>10.0</td>
+                                                    <td id="td_1_max2" class='red'>12.0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Silo 2</td>
+                                                    <td id="td_1_min" class='blue'>-7.0</td>
+                                                    <td id="td_1_min2" class='blue'>8.0</td>
+                                                    <td id="td_2_temp_1">21.7</td>
+                                                    <td id="td_2_umid_1">38.5</td>
+                                                    <td class='dark-green' id="td_2_temp_2">23.6</td>
+                                                    <td class='dark-green' id="td_2_umid_2">46.2</td>
+                                                    <td id="td_2_temp_3">25.1</td>
+                                                    <td id="td_2_umid_3">53.0</td>
+                                                    <td id="td_2_max" class='red'>15.0</td>
+                                                    <td id="td_2_max2" class='red'>14.0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Silo 3</td>
+                                                    <td id="td_1_min" class='blue'>-2.0</td>
+                                                    <td id="td_1_min2" class='blue'>6.0</td>
+                                                    <td id="td_3_temp_1">18.2</td>
+                                                    <td id="td_3_umid_1">37.0</td>
+                                                    <td class='dark-green' id="td_3_temp_2">20.1</td>
+                                                    <td class='dark-green' id="td_3_umid_2">44.7</td>
+                                                    <td id="td_3_temp_3">21.6</td>
+                                                    <td id="td_3_umid_3">51.5</td>
+                                                    <td id="td_3_max" class='red'>10.0</td>
+                                                    <td id="td_3_max2" class='red'>12.0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Silo 4</td>
+                                                    <td id="td_1_min" class='blue'>-7.0</td>
+                                                    <td id="td_1_min2" class='blue'>8.0</td>
+                                                    <td id="td_4_temp_1">22.4</td>
+                                                    <td id="td_4_umid_1">38.7</td>
+                                                    <td class='dark-green' id="td_4_temp_2">24.3</td>
+                                                    <td class='dark-green' id="td_4_umid_2">46.4</td>
+                                                    <td id="td_4_temp_3">25.8</td>
+                                                    <td id="td_4_umid_3">53.2</td>
+                                                    <td id="td_4_max" class='red'>15.0</td>
+                                                    <td id="td_4_max2" class='red'>14.0</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Silos Cards Row -->
+                    <div class="row">
+
+                        <!-- Silo 1 Card -->
+                        <div class="col-xl-3 col-md-6 mb-sylo">
+                            <div class="card border-left-primary shadow-s ">
+                                <div class="card-body">
+                                    <div class="silo-item-grid">
+                                        <div class="img-silo-item">
+                                            <img src="" alt="" id="silo1_img">
+                                        </div>
+                                        <div class="silo-item-info">
+                                            <table style="width:100%;color: #666666;">
+                                                <tr>
+                                                    <td>
+                                                        <b id="silo1_info1" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="silo1_info2">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Data de Armazenagem:
+                                                    </td>
+                                                    <td align="left" id="silo1_info3">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. do Ar: <span id="silo1_temp1" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. do Ar: <span id="silo1_umid1" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 1: <span id="silo1_temp2" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 1: <span id="silo1_umid2" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 2: <span id="silo1_temp3" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 2: <span id="silo1_umid3" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 3: <span id="silo1_temp4" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 3: <span id="silo1_umid4" />
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Silo 2 Card -->
+                        <div class="col-xl-3 col-md-6 mb-sylo">
+                            <div class="card border-left-success shadow-s ">
+                                <div class="card-body">
+                                    <div class="silo-item-grid">
+                                        <div class="img-silo-item">
+                                            <img src="" alt="" id="silo2_img">
+                                        </div>
+                                        <div class="silo-item-info">
+                                            <table style="width:100%;color: #666666;">
+                                                <tr>
+                                                    <td>
+                                                        <b id="silo2_info1" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="silo2_info2">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Data de Armazenagem:
+                                                    </td>
+                                                    <td align="left" id="silo2_info3">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. do Ar: <span id="silo2_temp1" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. do Ar: <span id="silo2_umid1" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 1: <span id="silo2_temp2" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 1: <span id="silo2_umid2" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 2: <span id="silo2_temp3" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 2: <span id="silo2_umid3" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 3: <span id="silo2_temp4" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 3: <span id="silo2_umid4" />
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row" style="margin-bottom:40px; ">
+
+
+                        <!-- Silo 3 Card -->
+                        <div class="col-xl-3 col-md-6 mb-sylo">
+                            <div class="card border-left-info shadow-s ">
+                                <div class="card-body">
+                                    <div class="silo-item-grid">
+                                        <div class="img-silo-item">
+                                            <img src="" alt="" id="silo3_img">
+                                        </div>
+                                        <div class="silo-item-info">
+                                            <table style="width:100%;color: #666666;">
+                                                <tr>
+                                                    <td>
+                                                        <b id="silo3_info1" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="silo3_info2">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Data de Armazenagem:
+                                                    </td>
+                                                    <td align="left" id="silo3_info3">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. do Ar: <span id="silo3_temp1" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. do Ar: <span id="silo3_umid1" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 1: <span id="silo3_temp2" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 1: <span id="silo3_umid2" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 2: <span id="silo3_temp3" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 2: <span id="silo3_umid3" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 3: <span id="silo3_temp4" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 3: <span id="silo3_umid4" />
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Silo 4 Card -->
+                        <div class="col-xl-3 col-md-6 mb-sylo">
+                            <div class="card border-left-danger shadow-s ">
+                                <div class="card-body">
+                                    <div class="silo-item-grid">
+                                        <div class="img-silo-item">
+                                            <img src="" alt="" id="silo4_img">
+                                        </div>
+                                        <div class="silo-item-info">
+                                            <table style="width:100%;color: #666666;">
+                                                <tr>
+                                                    <td>
+                                                        <b id="silo4_info1" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="silo4_info2">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Data de Armazenagem:
+                                                    </td>
+                                                    <td align="left" id="silo4_info3">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. do Ar: <span id="silo4_temp1" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. do Ar: <span id="silo4_umid1" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 1: <span id="silo4_temp2" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 1: <span id="silo4_umid2" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 2: <span id="silo4_temp3" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 2: <span id="silo4_umid3" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        Temp. Nível 3: <span id="silo4_temp4" />
+                                                    </td>
+                                                    <td align="left">
+                                                        Umid. Nível 3: <span id="silo4_umid4" />
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2019</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pronto para Sair?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        </button>
+                </div>
+                <div class="modal-body">Selecione "Sair" abaixo se você estiver pronto para terminar sua sessão atual.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" style="color:#fff;cursor:pointer;" onclick="logoff()">Sair</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor-func/jquery/jquery.min.js"></script>
+    <script src="vendor-func/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor-func/jquery-easing/jquery.easing.min.js"></script>
+
+    <!--func- Custom scripts for all pages-->
+    <script src="js-func/sb-admin-2.min.js"></script>
+
+    <!--func- Page level plugins -->
+    <script src="vendor-func/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js-func/demo/chart-pie-demo.js"></script>
+    <!-- Page level plugins -->
+    <script src="vendor-func/datatables/jquery.dataTables.js"></script>
+    <script src="vendor-func/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js-func/demo/datatables-demo.js"></script>
+
+</body>
+<!-- Scripts Gráficos -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
+<script src="./graficoDashboard.js"></script>
+
+</html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script>
+    var usuario;
+    verificarAutenticacao();
+
+    function verificarAutenticacao() {
+        usuario = localStorage.usuario_bandtec;
+        if (usuario == undefined) {
+            window.location.href = 'login.html';
+        } else {
+            span_nome.innerHTML = usuario;
+        }
+    }
+
+
+
+    function logoff() {
+        localStorage.removeItem('usuario_bandtec');
+        verificarAutenticacao();
+    }
+
+    var contAlerta = 0;
+
+    function limparContAlerta() {
+        contAlerta = 0;
+    }
+
+    tempoReal();
+
+    let cont_erros_placa = 0; 
+    // contador para indicar a partir de quantas leituras eu solto o alerta
+    let cont_erros_sensores = 0;
+
+    //teste para o on/off
+
+    let placa_queimada = false;
+    let erro_mostrado = false;
+ 
+//  teste para aparecer o nome do sylo e qual o seu nivel no alerta de sensor queimado
+    var arrayU = [];
+    // var arrayT = [];
+  
+
+
+    function tempoReal() {
+        fetch('/leituras/temporeal', {
+            cache: 'no-cache'
+        }).then(function(response) {
+            if (response.status == 200 || response.status == 304) {
+                response.json().then(function(resposta) {
+                   
+                    let hoje = new Date();
+                    let hoje_total = (hoje.getHours()*3600)+ (hoje.getMinutes()*60) + hoje.getSeconds();
+
+
+
+                    let cont_erros = 0; 
+                    // para cada silo, esse é referente ao cont erros placa.
+                    let cont_erros_sensor = 0;
+                    // para sensores, individual
+
+                    for (teste_cont = 0; teste_cont < resposta.length; teste_cont++) {
+                        for (teste_cont_2 = 0; teste_cont_2 < resposta.length; teste_cont_2++) {
+                            if (resposta[teste_cont][teste_cont_2].umidade == 0 &&
+                                resposta[teste_cont][teste_cont_2].temperatura == 0) {
+                                cont_erros_sensor++;
+                                cont_erros++;
+                                arrayU.push([teste_cont_2]);
+                                // aqui vou pegar qual nivel é
+
+                                arrayU.push([teste_cont]);
+                                //aqui vai pegar qual sylo é
+                                // console.log(resposta[teste_cont_2]);
+                                // arrayT.push(resposta[teste_cont][teste_cont_2].temperatura);
+                                // aqui vai pegar apenas o nível de algum sylo referente a sua temperatura
+                                if (cont_erros == 4) {
+                                    cont_erros_placa++;
+                                }
+                            } else {
+                                cont_erros = 0;
+                                // teste
+                                // volta pro zero pra nao ficar acumulando o cont erros placa
+                            }
+                            let hora_leitura = (resposta[teste_cont][teste_cont_2].hora).split(':');
+                            // vai tranformar cada parte do horario, hora, minuto e segundo em um vetor
+                            
+                           // aqui transformo tudo em segundos que nem o horario do pc de agora. e tb vou subtrair da diferença que possui de fuso
+                            let segundos_total = ((parseInt(hora_leitura[0])*3600)+ (parseInt(hora_leitura[1])*60)+ parseInt(hora_leitura[2]))- 10800;
+                            if((hoje_total - segundos_total) >= 60 ){
+                                placa_queimada = true;
+                                // arrayT.push([teste_cont]);
+                            }
+                            
+                            //subtraindo do fuso horário
+                        }
+                    }
+
+                    
+
+                    if (cont_erros_sensor > 0) {
+                        cont_erros_sensores++;
+                    }
+                    if (cont_erros_sensores > 5) {
+                        Swal.fire({
+                            title: "Aviso!",
+                            text: `Verifique seu sensor de nível ${Number(arrayU[0]) + 1} do sylo ${Number(arrayU[1])+1}, pois pode estar queimado!`,
+                            // aqui o numero do silo é identificado
+                            type: "warning",
+                            button: "Ok!",
+                        });
+                        cont_erros_sensores = 0;
+
+                        // teste4 aquiiii aaaaaaaaa
+                    }
+                    if (cont_erros_placa > 5){
+                        Swal.fire({
+                            title: "Aviso!",
+                            text: `Verifique as placas dos arduínos, alguma pode estar danificada!`,
+                            type: "warning",
+                            button: "Ok!",
+                        });
+                        cont_erros_placa = 0;
+                    }
+                  
+
+                
+
+                    for (x = 0; x < resposta.length; x++) {
+                        // var contador = 0;
+
+                        for (i = 0; i < 4; i++) {
+
+
+                            document.getElementById(`silo${x+1}_temp${i+1}`).innerHTML = `${resposta[x][i].temperatura}ºC`;
+                            document.getElementById(`silo${x+1}_umid${i+1}`).innerHTML = `${resposta[x][i].umidade}%`;
+                            document.getElementById(`silo${x+1}`).classList.add(`green`);
+
+
+                        }
+                        for (y = 1; y < 4; y++) {
+                            if (resposta[x][y].temperatura > 15) {
+                                document.getElementById(`silo${x+1}`).classList.remove(`green`);
+                                document.getElementById(`silo${x+1}`).classList.add(`red`);
+                                if (contAlerta < 4) {
+                                    Swal.fire({
+                                        title: "Aviso!",
+                                        text: `Temperatura de ${resposta[x][y].temperatura}ºC 
+                                        \n no nível ${y} está acima 
+                                        \n do recomendado no Silo ${x+1}!`,
+                                        type: "warning",
+                                        button: "Ok!",
+                                    });
+                                }
+                                contAlerta += 1;
+                                break;
+                            }
+                            if (resposta[x][y].umidade > 16) {
+                                document.getElementById(`silo${x+1}`).classList.remove(`green`);
+                                document.getElementById(`silo${x+1}`).classList.add(`red`);
+                                if (contAlerta < 4) {
+                                    Swal.fire({
+                                        title: "Aviso!",
+                                        text: `Umidade de ${resposta[x][y].umidade}%
+                                        \n no nível ${y} está acima 
+                                        \n do recomendado no Silo ${x+1}!`,
+                                        type: "warning",
+                                        button: "Ok!",
+                                    });
+                                }
+                                contAlerta += 1;
+                                break;
+                            }
+                        }
+                        if (resposta[x][0].temperatura > 17) {
+                            document.getElementById(`silo${x+1}`).classList.remove(`green`);
+                            document.getElementById(`silo${x+1}`).classList.add(`red`);
+                            if (contAlerta < 4) {
+                                Swal.fire({
+                                    title: "Aviso!",
+                                    text: `Temperatura de ${resposta[x][0].temperatura}ºC 
+                                    \n no nível 1 está acima
+                                    \n do recomendado no Silo ${x+1}!`,
+                                    className: 'text-center',
+                                    type: "warning",
+                                    button: "Ok!",
+                                });
+                            }
+                            contAlerta += 1;
+                        }
+                        if (resposta[x][0].umidade > 75) {
+                            document.getElementById(`silo${x+1}`).classList.remove(`green`);
+                            document.getElementById(`silo${x+1}`).classList.add(`red`);
+                            if (contAlerta < 4) {
+                                Swal.fire({
+                                    title: "Aviso!",
+                                    text: `Umidade de ${resposta[x][0].umidade}% 
+                                    \n no nível 1 está acima 
+                                    \n acima do recomendado no Silo ${x+1}!`,
+                                    type: "warning",
+                                    button: "Ok!",
+                                });
+                            }
+                            contAlerta += 1;
+                        }
+                        // while(i == 0 ){
+                        //             contador++;
+                        //             if(contador >10){
+                        //                 Swal.fire({
+                        //             title: "Aviso!",
+                        //             text: `Temperatura de ${resposta[x][0].temperatura}ºC 
+                        //             \n no nível 1 está acima
+                        //             \n do recomendado no Silo ${x+1}!`,
+                        //             className: 'text-center',
+                        //             type: "warning",
+                        //             button: "Ok!",
+                        //         });
+                        //             }
+                        //     }
+                    }
+
+
+                    if(placa_queimada == true && erro_mostrado != true){
+                        Swal.fire({
+                            title: "Aviso!",
+                            text: `Leituras antigas, verifique se a placa Arduíno do sylo  está conectada!`,
+                            // ${Number(arrayT[0])+1}
+                            type: "warning",
+                            button: "Ok!",
+                        });
+                        erro_mostrado = true;
+                        
+                        //pra nao ficar mostrando o alerta toda hora
+                    }
+
+
+
+
+                })
+            } else {
+                //Swal.fire({
+                //    title: "Aviso!",
+                //    text: `Erro na aquisição de dados!`,
+                //    type: "warning",
+                //    button: "Ok!",
+                //});
+            }
+        }).catch(function(error) {
+            console.error(`Erro: ${error.message}`);
+        });
+        setTimeout(tempoReal, 5000);
+    }
+
+
+    infoSilo();
+
+    function infoSilo() {
+        var data = {
+            id: [1, 2, 3, 4]
+        };
+        var dado = new URLSearchParams(new FormData());
+        dado.append("json", JSON.stringify(data));
+        fetch('/leituras/silo', {
+            method: 'POST',
+            body: dado
+        }).then(function(response) {
+            if (response.ok) {
+                response.json().then(function(resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    for (x = 0; x < resposta.length; x++) {
+                        document.getElementById(`silo${x+1}_info1`).innerHTML = `Silo ${resposta[x].descricao}`;
+                        document.getElementById(`silo${x+1}_info2`).innerHTML = `Cultura: ${resposta[x].cultura}`;
+                        document.getElementById(`silo${x+1}_info3`).innerHTML = `${resposta[x].data_armazenagem}`;
+                        if (resposta[x].cultura == 'Milho') {
+                            document.getElementById(`silo${x+1}_img`).src = `./img-func/corn.png`;
+                        } else if (resposta[x].cultura == 'Soja') {
+                            document.getElementById(`silo${x+1}_img`).src = `./img-func/soy(2).png`;
+                            document.getElementById(`silo${x+1}_img`).classList.add('soy');
+                        }
+                    }
+                })
+            } else {
+                setTimeout(infoSilo, 10000);
+            }
+        }).catch(function(error) {
+            setTimeout(infoSilo, 10000);
+            console.error(`Erro: ${error.message}`);
+        });
+    }
+
+    obterAnalytics();
+
+    function obterAnalytics() {
+
+        fetch('/leituras/analytics', {
+            cache: 'no-cache'
+        }).then(function(response) {
+            if (response.ok) {
+                response.json().then(function(resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    for (i = 0; i < resposta.length; i++) {
+                        document.getElementById(`td_${i + 1}_temp_1`).innerHTML = (resposta[i].MinTemp).toFixed(1);
+                        document.getElementById(`td_${i + 1}_umid_1`).innerHTML = (resposta[i].MinUmid).toFixed(1);
+
+                        document.getElementById(`td_${i + 1}_temp_2`).innerHTML = (resposta[i].MediaTemp).toFixed(1);
+                        document.getElementById(`td_${i + 1}_umid_2`).innerHTML = (resposta[i].MediaUmid).toFixed(1);
+
+                        document.getElementById(`td_${i + 1}_temp_3`).innerHTML = (resposta[i].MaxTemp).toFixed(1);
+                        document.getElementById(`td_${i + 1}_umid_3`).innerHTML = (resposta[i].MaxUmid).toFixed(1);
+                    }
+                })
+                setTimeout(obterAnalytics, 10000);
+            } else {
+                setTimeout(obterAnalytics, 10000);
+            }
+        }).catch(function(error) {
+            console.error(`Erro: ${error.message}`);
+            setTimeout(obterAnalytics, 10000);
+        });
+    }
+</script>

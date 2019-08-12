@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sylo - Cadastro</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="icon" href="./img/logo-icon.png">
+
+    <!-- Custom styles for this template-->
+    <link href="css-func/sb-admin-2.css" rel="stylesheet">
+    <!-- Start of sylohelp Zendesk Widget script -->
+    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=0ef55123-a998-4b5b-a1b5-8fdff40f3c62">
+    </script>
+    <!-- End of sylohelp Zendesk Widget script -->
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5"> <br>
+                                <div style="margin-top: -10%">
+                                        <a id="voltar_index_2" href="index.html" class="simple-text"
+                                            style="font-family: 'Courier New', Courier, monospace; font-size: 5em">
+                                            <img src="img-func/logo-text.png" style="width:35%; height:10%; margin-bottom:-108%; margin-top:-105%; margin-left:30%">
+                                        </a>
+                                    </div> <br>
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Faça seu cadastro aqui</h1>
+                            </div>
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Dados pessoais</h1>
+                            </div>
+                            <form class="user" method="POST" onsubmit="return registrar()" id="form_cadastro">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" name="nome" id="nome" placeholder="Nome">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" name="sobrenome" id="sobrenome" placeholder="Sobrenome">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="date" class="form-control form-control-user" name="data" id="data" placeholder="Data de nascimento">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="number" maxlength="11" minlength="11" class="form-control form-control-user" id="cnpj" name="cnpj" placeholder="CNPJ">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" maxlength="14" minlength="13" class="form-control form-control-user" onkeydown="javascript: fMasc( this, mTel );" id="telefone" name="telefone" placeholder="Telefone">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" maxlength="14" minlength="13" class="form-control form-control-user" onkeydown="javascript: fMasc( this, mTel );" id="telefone2" name="telefone2" placeholder="Telefone 2 (Opcional)">
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Dados de endereço</h1>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <select class=" form-control-user" name="estado" id="estado">
+                      <option value="">-Estado-</option>
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espírito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="TO">Tocantins</option>
+                    </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" name="cidade" id="cidade" placeholder="Cidade">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-user" maxlength="8" minlength="8" name="cep" id="cep" placeholder="CEP">
+                                </div>
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Dados de login</h1>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="email" class="form-control form-control-user" name="email" id="email" placeholder="E-mail">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" name="nome_usuario" id="nome_U" placeholder="Nome de usuário">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" name="senha" id="senha" placeholder="Senha">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user" id="conf_senha" placeholder="Confirme sua senha">
+                                    </div>
+                                </div>
+                                <button id="id_registrar" class="btn btn-primary btn-user btn-block">
+                  Registrar cadastro </button>
+                                <hr>
+                              
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                            </div>
+                            <div class="text-center">
+                                <a id="id_conta_existente" class="small" href="login.html">Você já possui uma conta? Acesse aqui!</a>
+                            </div> <br>
+
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- Script do CPF e Telefone-->
+<script>
+    function fMasc(objeto, mascara) {
+        obj = objeto
+        masc = mascara
+        setTimeout("fMascEx()", 1)
+    }
+
+    function fMascEx() {
+        obj.value = masc(obj.value)
+    }
+
+    function mTel(tel) {
+        tel = tel.replace(/\D/g, "")
+        tel = tel.replace(/^(\d)/, "($1")
+        tel = tel.replace(/(.{3})(\d)/, "$1)$2")
+        if (tel.length == 9) {
+            tel = tel.replace(/(.{1})$/, "-$1")
+        } else if (tel.length == 10) {
+            tel = tel.replace(/(.{2})$/, "-$1")
+        } else if (tel.length == 11) {
+            tel = tel.replace(/(.{3})$/, "-$1")
+        } else if (tel.length == 12) {
+            tel = tel.replace(/(.{4})$/, "-$1")
+        } else if (tel.length > 12) {
+            tel = tel.replace(/(.{4})$/, "-$1")
+        }
+        return tel;
+    }
+
+    function mNum(num) {
+        num = num.replace(/\D/g, "")
+        return num
+    }
+</script>
+<!--Fim do Script do CPF e Telefone-->
+
+<script>
+    function registrar() {
+        if (nome.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, insira seu nome.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_1",
+            });
+            nome.focus();
+            return false;
+        } else if (sobrenome.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, insira seu sobrenome.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_2",
+            });
+            sobrenome.focus();
+            return false;
+        } else if (data.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, sua data de nascimento.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_3",
+            });
+            data.focus();
+            return false;
+        } else if (cnpj.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, insira seu CNPJ.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_4",
+            });
+            cnpj.focus();
+            return false;
+        }
+        //else if dos campos CPF e Telefone
+        else if (telefone.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, insira seu telefone.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_5",
+            });
+            telefone.focus();
+            return false;
+        }
+        //fim dos else if dos campos CPF e Telefone
+        else if (estado.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, insira seu estado.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_6",
+            });
+            estado.focus();
+            return false;
+        } else if (cidade.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, insira sua cidade.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_7",
+            });
+            cidade.focus();
+            return false;
+        } else if (cep.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, insira o CEP de sua propriedade.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_8",
+            });
+            cep.focus();
+            return false;
+        } else if (email.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, insira seu email.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_9",
+            });
+            email.focus();
+            return false;
+        } else if (nome_U.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, insira seu nome de usuário.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_10",
+            });
+            nome_U.focus();
+            return false;
+        } else if (senha.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, insira sua senha.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_11",
+            });
+            senha.focus();
+            return false;
+        } else if (conf_senha.value == "") {
+            swal({
+                title: "Aviso!",
+                text: "Por favor, confirme sua senha.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_12",
+            });
+            conf_senha.focus();
+            return false;
+        } else if (conf_senha.value != senha.value) {
+            swal({
+                title: "Aviso!",
+                text: "Confirmação de senha inváldia.",
+                icon: "warning",
+                button: "Ok!",
+                id: "ok_cadastro_13",
+            });
+            conf_senha.focus();
+            return false;
+        } else {
+            var formulario = new URLSearchParams(new FormData(form_cadastro));
+            fetch("/usuarios/registrar", {
+                method: "POST",
+                body: formulario
+            }).then(function(response) {
+                if (response.ok) {
+                    swal({
+                        title: "Sucesso",
+                        text: "Cadastro foi realizado com sucesso!",
+                        icon: "success",
+                        button: "Ir Para Login",
+                        id: "ok_irparalogin",
+                    }).then(willDelete => {
+                        window.location = "login.html";
+                    });
+                    return false;
+                } else {
+                    swal({
+                        title: "Aviso!",
+                        text: "Erro no cadastro!",
+                        icon: "warning",
+                        button: "Ok!",
+                        id: "ok_cadastro_14",
+                    });
+                    return false;
+                }
+            });
+            return false;
+        }
+    }
+</script>
