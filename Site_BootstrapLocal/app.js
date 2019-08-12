@@ -23,12 +23,6 @@ app.use('/relatorio', relatoriosRouter);
 
 module.exports = app;
 
-const banco = require("./app-banco");
+// const banco = require("./app-banco");
 
-banco.connection.getConnection(function (erro){
-    if (!erro) {
-        console.log("Conexão com banco funcionando corretamente");
-    } else {
-        console.log("Conexão com banco falhou");
-    }
-});
+// banco.

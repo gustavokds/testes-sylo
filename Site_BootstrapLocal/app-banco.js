@@ -34,13 +34,27 @@ var perfil = desenvolvimento ? 'desenvolvimento' : 'producao';
 
 function conectar() {
     //   return sql.connect(configuracoes[perfil])
-    return new mysql.ConnectionPool(connection[perfil]).connect();
+    return new connection.getConnection();
 }
 
 // function conectar2() {
 //     return sql.connect(configuracoes[perfil])
 //         //   return new sql.ConnectionPool(configuracoes[perfil]).connect();  
 // }
+
+connection.getConnection(function (erro){
+    if (!erro) {
+        connection.query(`select email, senha from produtor where nomeUsuario = 'TesteTeste' and senha='123456'`,(err,rows)=>{
+            if(err) throw err;
+
+            console.log(rows)
+        }
+            );
+        console.log("Conexão com banco funcionando corretamente");
+    } else {
+        console.log("Conexão com banco falhou");
+    }
+});
 
 module.exports = {
     // conectar2: conectar2,

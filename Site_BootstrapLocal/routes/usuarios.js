@@ -4,36 +4,89 @@ var router = express.Router();
 var banco = require('../app-banco');
 // não mexa nessas 3 linhas!
 
+// router.post('/entrar', function(req, res, next) {
+
+//     banco.conectar().then(pool => {
+//         console.log(`Chegou p/ login: ${JSON.stringify(req.body)}`);
+//         var email = req.body.email; // depois de .body, use o nome (name) do campo em seu formulário de login
+//         var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login
+//         if (email == undefined || senha == undefined) {
+//             throw new Error(`Dados de email não chegaram completos: ${email} / ${senha}`);
+//         }
+//         return banco.connection.query(`select email, senha from produtor where email='${email}' and senha='${senha}' or nomeUsuario = '${email}' and senha='${senha}'`);
+//     }).then(consulta => {
+
+//         console.log(`Usuários encontrados: ${JSON.stringify(consulta.recordset)}`);
+
+//         if (consulta.recordset.length == 1) {
+//             res.send(consulta.recordset[0]);
+//         } else {
+//             res.sendStatus(404);
+//         }
+
+//     }).catch(err => {
+
+//         var erro = `Erro no login: ${err}`;
+//         console.error(erro);
+//         res.status(500).send(erro);
+
+//     }).finally(() => {
+//         banco.mysql.close();
+//         console.log('Fechou');
+//     });
+
+// });
+
+
 router.post('/entrar', function(req, res, next) {
 
-    banco.conectar().then(pool => {
         console.log(`Chegou p/ login: ${JSON.stringify(req.body)}`);
         var email = req.body.email; // depois de .body, use o nome (name) do campo em seu formulário de login
         var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login
         if (email == undefined || senha == undefined) {
             throw new Error(`Dados de email não chegaram completos: ${email} / ${senha}`);
         }
-        return pool.request().query(`select email, senha from produtor where email='${email}' and senha='${senha}' or nomeUsuario = '${email}' and senha='${senha}'`);
-    }).then(consulta => {
+    banco.connection.query(`select email, senha from produtor where email='${email}' and senha='${senha}' or nomeUsuario = '${email}' 
+    and senha='${senha}'`,
+            function(error,resultado,fields){
+                console.log(`Usuários encontrados: ${JSON.stringify(resultado)}`);
+                if(resultado.length ==1){
+                    res.send(resultado[0]);
+                }
+                else{
+                    res.sendStatus(404);
+                }
+            });
 
-        console.log(`Usuários encontrados: ${JSON.stringify(consulta.recordset)}`);
 
-        if (consulta.recordset.length == 1) {
-            res.send(consulta.recordset[0]);
-        } else {
-            res.sendStatus(404);
-        }
+    // banco.conectar().then(pool => {
+    //     console.log(`Chegou p/ login: ${JSON.stringify(req.body)}`);
+    //     var email = req.body.email; // depois de .body, use o nome (name) do campo em seu formulário de login
+    //     var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login
+    //     if (email == undefined || senha == undefined) {
+    //         throw new Error(`Dados de email não chegaram completos: ${email} / ${senha}`);
+    //     }
+    //     return banco.connection.query(`select email, senha from produtor where email='${email}' and senha='${senha}' or nomeUsuario = '${email}' and senha='${senha}'`);
+    // }).then(consulta => {
 
-    }).catch(err => {
+    //     console.log(`Usuários encontrados: ${JSON.stringify(consulta.recordset)}`);
 
-        var erro = `Erro no login: ${err}`;
-        console.error(erro);
-        res.status(500).send(erro);
+    //     if (consulta.recordset.length == 1) {
+    //         res.send(consulta.recordset[0]);
+    //     } else {
+    //         res.sendStatus(404);
+    //     }
 
-    }).finally(() => {
-        banco.mysql.close();
-        console.log('Fechou');
-    });
+    // }).catch(err => {
+
+    //     var erro = `Erro no login: ${err}`;
+    //     console.error(erro);
+    //     res.status(500).send(erro);
+
+    // }).finally(() => {
+    //     banco.mysql.close();
+    //     console.log('Fechou');
+    // });
 
 });
 
